@@ -20,7 +20,7 @@ fn main() {
     );
     println!(
         "First repeating frequency: {}",
-        find_first_repeating_frequency(frequency_changes)
+        find_first_repeating_frequency(&frequency_changes)
     );
 }
 
@@ -28,7 +28,7 @@ fn compute_sum_frequency_change(frequency_changes: &Vec<i32>) -> i32 {
     return frequency_changes.iter().sum();
 }
 
-fn find_first_repeating_frequency(frequency_changes: Vec<i32>) -> i32 {
+fn find_first_repeating_frequency(frequency_changes: &Vec<i32>) -> i32 {
     let mut iteration = 0;
     let mut frequencies: HashSet<i32> = HashSet::new();
     let mut frequency = 0;
@@ -58,5 +58,10 @@ mod tests {
     #[test]
     fn test_compute_sum_frequency_change_correct() {
         assert_eq!(compute_sum_frequency_change(&vec!(1, 2, 3, -1, 4)), 9);
+    }
+
+    #[test]
+    fn test_find_first_repeating_frequency_correct() {
+        assert_eq!(find_first_repeating_frequency(&vec!(7, 7, -2, -7, -4)), 14);
     }
 }

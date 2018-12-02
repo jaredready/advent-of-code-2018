@@ -32,6 +32,7 @@ fn find_first_repeating_frequency(frequency_changes: Vec<i32>) -> i32 {
     let mut iteration = 0;
     let mut frequencies: HashSet<i32> = HashSet::new();
     let mut frequency = 0;
+    frequencies.insert(frequency);
     while iteration < 1000 {
         for mut x in 0..frequency_changes.len() {
             frequency += frequency_changes.get(x).unwrap();
